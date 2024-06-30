@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from './Button';
 export default function Header() {
   return (
     <header
@@ -10,7 +11,7 @@ export default function Header() {
       <h2 className="text-6xl md:text-8xl font-bold text-white">Blog</h2>
 
       <div role="separator" className="bg-gradient-to-t from-10% from-blue-500 to-transparent to-95% my-2 w-[2px] h-[100px] rounded-b-lg"></div>
-        <a href="#content" className="bg-blue-500 hover:bg-blue-700 p-2 rounded-md text-white font-bold">Voir les articles</a>
+       <Button role="link" label='Voir les articles' href="#content" />
       </div>
     </header>
   );

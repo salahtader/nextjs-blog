@@ -18,10 +18,10 @@ describe('Header component', () => {
 
   it('renders the link to content', () => {
     render(<Header />);
-    const linkElement = screen.getByText(/Voir les articles/i);
-    expect(linkElement).toBeInTheDocument();
+    const linkElement = screen.getByRole('link', { name: /Voir les articles/i });
     expect(linkElement).toHaveAttribute('href', '#content');
   });
+  
 
   it('renders with the correct background image', () => {
     render(<Header />);

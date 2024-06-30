@@ -17,8 +17,13 @@
         "name": "next"
       }
     ],
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "hooks/*": ["app/hooks/*"],
+      "components/*": ["app/components/*"],
+      "db/*": ["app/db/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

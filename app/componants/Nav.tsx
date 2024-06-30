@@ -1,6 +1,7 @@
 "use client";
+import React from 'react';
+import Link from "next/link";
 
-import Link from "@/node_modules/next/link";
 
 export default function Nav() {
   const menu = [
