@@ -23,14 +23,21 @@ const useFirebaseData = (): PostData[] => {
         querySnapshot.forEach((doc:any) => {
           newData.push({ id: doc.id, ...doc.data() } as PostData); 
         });
-        // console.log(newData);
         
+        // setData((prevData) => {
+        //   const newDataWithoutDuplicates = newData.filter((newItem) => //rée un nouveau tableau contenant uniquement les éléments de newData non double 
+        //     !prevData.some((prevItem) => prevItem.id === newItem.id)        // vérifie si prevData contient un élément avec le même id que newItem.
+        //   );
+        //   return [...prevData, ...newDataWithoutDuplicates];
+        // });
+
+        // todo: instertion de la list dans etat composant apres verif en supp doublouns 
         setData((prevData) => {
-          const newDataWithoutDuplicates = newData.filter((newItem) => //rée un nouveau tableau contenant uniquement les éléments de newData non double 
-            !prevData.some((prevItem) => prevItem.id === newItem.id)        // vérifie si prevData contient un élément avec le même id que newItem.
-          );
-          return [...prevData, ...newDataWithoutDuplicates];
+          const prevIds = new Set(prevData.map(item => item.id)); //Cela crée un ensemble (Set) contenant tous les id des éléments dans prevData. Utiliser un ensemble rend la vérification de la présence d'un id beaucoup plus rapide 
+          const newDataWithoutDuplicates = newData.filter(newItem => !prevIds.has(newItem.id)); //filtre sur newData en incluant uniquement les éléments dont l'id n'est pas présent dans prevIds.
+          return [...prevData, ...newDataWithoutDuplicates]; //Combine les éléments de prevData avec ceux de newDataWithoutDuplicates.
         });
+        
       } catch (error) {
         console.error("Error fetching posts:", error);
       }

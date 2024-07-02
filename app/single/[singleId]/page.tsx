@@ -34,7 +34,7 @@ export default function SinglePage({params}: ArticleDetailsProps) {
   console.log(articleDetails)
 
   return (
-    <div className="w-full  pt-20">
+    <div className="w-full  pt-20 ">
         {articleDetails && (
           <div className="bg-[#f1f1f1] max-w-[1200px] m-auto p-3 md:p-12 md:px-24 lg:px-36">
               <FaArrowLeft className="text-[50px] cursor-pointer rounded-full p-2 bg-blue-500 text-white hover:scale-105 transition-all mb-5" onClick={()=> router.back()} />
